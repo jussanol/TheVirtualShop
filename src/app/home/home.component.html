@@ -1,1 +1,6 @@
-<app-carousel [carouseles]='carouseles'></app-carousel>
+<div class="contenedor">
+    <app-carousel [carouseles]='carouseles'></app-carousel>
+    <app-banner-visor [banners]='banners' class='banner'></app-banner-visor>
+    <h1>{{tituloCategorias |uppercase}}</h1>
+    <app-categoria [categorias]='categorias'></app-categoria>
+</div>

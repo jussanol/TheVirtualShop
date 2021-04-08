@@ -1,0 +1,17 @@
+.contenedorBanner{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-around;
+    margin-top: 40px;
+}
+
+.banner{
+    text-align: center;
+    text-decoration: underline;
+}
+
+.banner img{
+    width: 435px;
+    height: 526px;
+}

@@ -7,6 +7,8 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CarouselComponent } from './entities/carousel/carousel/carousel.component';
+import { BannerVisorComponent } from './entities/banner/banner-visor/banner-visor.component';
+import { CategoriaComponent } from './entities/categoria/categoria/categoria.component';
 
 
 @NgModule({
@@ -14,7 +16,9 @@ import { CarouselComponent } from './entities/carousel/carousel/carousel.compone
     AppComponent,
     NavbarComponent,
     HomeComponent,
-    CarouselComponent
+    CarouselComponent,
+    BannerVisorComponent,
+    CategoriaComponent
   ],
   imports: [
     BrowserModule,

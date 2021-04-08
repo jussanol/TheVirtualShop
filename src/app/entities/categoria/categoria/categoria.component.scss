@@ -1,0 +1,16 @@
+.contenedorCategoria{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-around;
+}
+
+.categoria{
+    text-align: center;
+    text-decoration: underline;
+}
+
+.categoria img{
+    width: 259px;
+    height: 348px;
+}
