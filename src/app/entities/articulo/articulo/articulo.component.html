@@ -1,0 +1,12 @@
+<img class="card-img-top" src="{{articulo.urlImagen}}" alt="{{articulo.titulo}}">
+<div class="imagenFavorito" [innerHTML]='articulo.favorito | favorito'>&nbsp;</div>
+<div class="card-body">
+    <h5 class="card-title">{{articulo.titulo|uppercase}}</h5>
+</div>
+<div *ngIf="!rebajado" class="card-footer">
+    <small class="text-muted">{{articulo.precio | currency: 'EUR':'symbol':undefined:'es'}}</small>
+</div>
+<div *ngIf="rebajado" class="card-footer">
+    <small class="text-muted precioNormal">{{articulo.precio | currency: 'EUR':'symbol':undefined:'es'}}</small>
+    <small class="precioRebajado">{{articulo.precioOferta | currency: 'EUR':'symbol':undefined:'es'}}</small>
+</div>

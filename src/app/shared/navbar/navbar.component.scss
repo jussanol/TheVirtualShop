@@ -19,3 +19,20 @@
     margin-left: 10px;
     text-shadow: 0 0 21px black;
 }
+
+.btn-outline-success:not(:disabled):not(.disabled):active{
+    background-color: #601d60;
+    border-color: #601d60;
+}
+
+.btn-outline-success:hover {
+    color: #fff;
+    background-color: #601d60;
+    border-color: #601d60;
+}
+.btn-outline-success:focus {
+    box-shadow: 0 0 0 0.2rem #601d607a;
+}
+.btn-outline-success:not(:disabled):not(.disabled):active:focus {
+    box-shadow: 0 0 0 0.2rem #601d607a;
+}

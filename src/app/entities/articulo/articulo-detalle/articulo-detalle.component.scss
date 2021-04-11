@@ -1,0 +1,78 @@
+.contenedor{
+    display: flex;
+    padding: 25px;
+}
+
+.contenidoDetalle{
+    margin-left: 100px;
+}
+
+.precioRebajado{
+    padding-left: 5px;
+    color: red;
+    font-size: 27pt;
+}
+
+.precioTachado{
+    text-decoration:line-through;
+}
+.precio{
+    font-size: 20pt;
+}
+
+p{
+    font-size: 10pt;
+}
+
+.imagenFavorito{
+    width: 55px;
+    height: 54px;
+    position: absolute;
+    margin-left: 20px;
+    padding: 5px;
+    border-radius: 50%;
+    margin-top: -62px;
+}
+
+.colorDetalle{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.imagenDetallePeq{
+    width: 20%;
+}
+
+.size div {
+    border-radius: 0;
+    min-height: 40px;
+    min-width: 35px;
+    line-height: 35px;
+    display: inline-block;
+    margin: 5px 19px 0px 0px;
+    border: 1px solid #CCC;
+    cursor: pointer;
+    padding: 0px 7px;
+    vertical-align: top;
+    white-space: nowrap;
+    text-align: center;
+}
+hr {
+    height: 0,5px;
+    background-color: black;
+}
+
+button {
+    background-color: #010101;
+    color: white;
+    padding: 18px 40px;
+    text-transform: uppercase;
+    font-size: 10pt;
+    margin-right: 40px;
+    font-weight: bold;
+    border: none;
+}
+
+button:hover{
+    background: #d8d8d8;
+    color: #747374;
+}

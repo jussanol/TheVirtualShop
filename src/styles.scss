@@ -2,3 +2,24 @@
     font-family: titleFont;
     src: url(./assets/Aladin/Aladin-Regular.ttf);
 }
+
+h1 {
+    text-align: center;
+    font-size: 30pt;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: titleFont;
+    color: black;
+}
+
+.contenedor{
+    width: 95%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.favorito{
+    width: 45px;
+    height: 45px;
+    background-size: cover;
+}

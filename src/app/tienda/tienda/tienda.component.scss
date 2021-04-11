@@ -1,0 +1,22 @@
+.contenedor h1{
+    margin-top: 20px;
+}
+
+.contenedorArticulos{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: space-around;
+    margin-top: 40px;
+}
+
+.articuloCard{
+    width: 400px;
+    margin-bottom: 20px;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+

@@ -1,0 +1,10 @@
+<div class="contenedor">
+    <h1>{{tituloTienda |uppercase}}</h1>
+    <div class="contenedorArticulos">
+        <div class="articuloCard" *ngFor="let articulo of articulos">
+            <a [routerLink]="[ '/tienda', articulo.id ]">
+                <app-articulo [articulo]='articulo'></app-articulo>
+            </a>
+        </div>
+    </div>
+</div>

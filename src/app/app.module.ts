@@ -9,6 +9,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CarouselComponent } from './entities/carousel/carousel/carousel.component';
 import { BannerVisorComponent } from './entities/banner/banner-visor/banner-visor.component';
 import { CategoriaComponent } from './entities/categoria/categoria/categoria.component';
+import { TiendaComponent } from './tienda/tienda/tienda.component';
+import { ArticuloComponent } from './entities/articulo/articulo/articulo.component';
+import { FavoritoPipe } from './shared/pipes/favorito.pipe';
+import { ArticuloDetalleComponent } from './entities/articulo/articulo-detalle/articulo-detalle.component';
 
 
 @NgModule({
@@ -18,7 +22,11 @@ import { CategoriaComponent } from './entities/categoria/categoria/categoria.com
     HomeComponent,
     CarouselComponent,
     BannerVisorComponent,
-    CategoriaComponent
+    CategoriaComponent,
+    TiendaComponent,
+    ArticuloComponent,
+    FavoritoPipe,
+    ArticuloDetalleComponent
   ],
   imports: [
     BrowserModule,
