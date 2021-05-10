@@ -19,7 +19,7 @@ export class ArticuloDetalleComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.articulo = <Articulo>this.articuloService.getArticulo(this.idArticulo);
+    this.articuloService.getArticulo(this.idArticulo).subscribe(articulo => this.articulo = articulo);
     if (this.articulo.precio != this.articulo.precioOferta) {
       this.rebajado = true;
     } else {

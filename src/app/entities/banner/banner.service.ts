@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Banner } from './banner.model';
 
 @Injectable({
@@ -6,22 +8,12 @@ import { Banner } from './banner.model';
 })
 export class BannerService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  public obtenerBanners(): Banner[] {
+  public obtenerBanners(): Observable<Banner[]> {
 
-    const banners: Banner[] = [];
-
-    const elemento01 = new Banner('Bricolage', './assets/banner/banner01.gif', 'Todo lo que necesitas para tu jardín');
-    const elemento02 = new Banner('Gourmet', './assets/banner/banner03.jpeg', 'Todo lo que neceitas para tu mascota');
-    const elemento03 = new Banner('Mascotas', './assets/banner/banner02.jpeg', 'Ideas gourmet');
-
-    banners.push(elemento01);
-    banners.push(elemento02);
-    banners.push(elemento03);
-
-
-    return banners;
+    const urlEndPoint = "http://localhost:8080/api/banners";
+    return this.http.get<Banner[]>(urlEndPoint);
 
   }
 }

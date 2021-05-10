@@ -17,7 +17,7 @@ export class TiendaComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.articulos = this.articuloService.getArticulos();
+    this.articuloService.getArticulos().subscribe(articulos => this.articulos = articulos);
   }
 
 }

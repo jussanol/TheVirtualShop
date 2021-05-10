@@ -1,4 +1,4 @@
-<img class="card-img-top" src="{{articulo.urlImagen}}" alt="{{articulo.titulo}}">
+<img class="card-img-top" [src]="articulo.tipoImagen + articulo.imagen" alt="{{articulo.titulo}}">
 <div class="imagenFavorito" [innerHTML]='articulo.favorito | favorito'>&nbsp;</div>
 <div class="card-body">
     <h5 class="card-title">{{articulo.titulo|uppercase}}</h5>

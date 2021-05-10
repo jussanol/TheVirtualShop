@@ -1,9 +1,10 @@
 export class Carousel {
     title: string;
-    url: string;
+    //url: string;
+    imagen: any
 
-    constructor(title: string, url: string) {
+    constructor(title: string, imagen: any) {
         this.title = title;
-        this.url = url;
+        this.imagen = imagen;
     }
 }

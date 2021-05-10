@@ -1,11 +1,13 @@
 export class Categoria {
     titulo: string;
-    url: string;
     categoria: string;
+    tipoImagen: string;
+    imagen: any;
 
-    constructor(titulo: string, url: string, categoria: string) {
+    constructor(titulo: string, categoria: string, tipoImagen: string, imagen: any) {
         this.titulo = titulo;
-        this.url = url;
         this.categoria = categoria;
+        this.tipoImagen = tipoImagen;
+        this.imagen = imagen
     }
 }

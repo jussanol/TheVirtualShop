@@ -26,9 +26,9 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.carouseles = this.carouselService.obtenerCarousel();
-    this.banners = this.bannerService.obtenerBanners();
-    this.categorias = this.categoriaServide.obtenerCategorias();
+    this.carouselService.obtenerCarousel().subscribe(carrousels => this.carouseles = carrousels);
+    this.bannerService.obtenerBanners().subscribe(banners => this.banners = banners);
+    this.categoriaServide.obtenerCategorias().subscribe(categorias => this.categorias = categorias);
   }
 
 }

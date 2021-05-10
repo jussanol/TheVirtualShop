@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Carousel } from './carousel.model';
 
 @Injectable({
@@ -6,22 +8,10 @@ import { Carousel } from './carousel.model';
 })
 export class CarouselService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  public obtenerCarousel(): Carousel[] {
-
-    const carousel: Carousel[] = [];
-
-    const elemento01 = new Carousel('Novedades', './assets/carousel/carousel01.jpg');
-    const elemento02 = new Carousel('Descuentos', './assets/carousel/carousel02.jpg');
-    const elemento03 = new Carousel('Newsletter', './assets/carousel/carousel03.jpg');
-
-    carousel.push(elemento01);
-    carousel.push(elemento02);
-    carousel.push(elemento03);
-
-
-    return carousel;
-
+  public obtenerCarousel(): Observable<Carousel[]> {
+    const urlEndPoint = "http://localhost:8080/api/carrousels";
+    return this.http.get<Carousel[]>(urlEndPoint);
   }
 }

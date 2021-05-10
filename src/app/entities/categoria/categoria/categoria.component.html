@@ -1,6 +1,6 @@
 <div class="contenedorCategoria">
     <div class="categoria" *ngFor="let categoria of categorias">
-        <img src="{{categoria.url}}" alt="{{categoria.titulo}}" />
+        <img [src]="categoria.tipoImagen + categoria.imagen" alt="{{categoria.titulo}}" />
         <p>{{categoria.categoria | titlecase}}</p>
     </div>
 </div>

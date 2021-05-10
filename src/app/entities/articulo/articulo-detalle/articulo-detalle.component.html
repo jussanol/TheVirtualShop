@@ -1,6 +1,6 @@
 <div class="contenedor">
     <div class="imagen">
-        <img src="{{articulo.urlImagen}}" alt="{{articulo.titulo}}">
+        <img [src]="articulo.tipoImagen + articulo.imagen" alt="{{articulo.titulo}}">
         <div class="imagenFavorito" [innerHTML]='articulo.favorito | favorito'>&nbsp;</div>
     </div>
     <div class="contenidoDetalle">
@@ -15,7 +15,7 @@
         <hr>
         <div class="colorDetalle">
             <p>Color: <b>Multicolor</b></p>
-            <img class="imagenDetallePeq" src="{{articulo.urlImagen}}" alt="{{articulo.titulo}}">
+            <img class="imagenDetallePeq" [src]="articulo.tipoImagen + articulo.imagen" alt="{{articulo.titulo}}">
         </div>
         <hr>
         <div class="size">
