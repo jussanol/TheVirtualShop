@@ -25,7 +25,6 @@ export class CategoriaListComponent implements OnInit {
   }
 
   prepararEliminar(id: number) {
-    alert(id);
     this.aEliminar = id;
   }
 

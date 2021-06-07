@@ -23,7 +23,6 @@ export class BannerListComponent implements OnInit {
   }
 
   prepararEliminar(bannerID: number) {
-    alert(bannerID);
     this.bannerEliminar = bannerID;
   }
 

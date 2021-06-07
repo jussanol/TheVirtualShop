@@ -23,7 +23,6 @@ export class ArticuloListComponent implements OnInit {
   }
 
   prepararEliminar(articuloID: number) {
-    alert(articuloID);
     this.articuloEliminar = articuloID;
   }
 
