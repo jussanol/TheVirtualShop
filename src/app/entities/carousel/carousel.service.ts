@@ -10,8 +10,31 @@ export class CarouselService {
 
   constructor(private http: HttpClient) { }
 
-  public obtenerCarousel(): Observable<Carousel[]> {
-    const urlEndPoint = "http://localhost:8080/api/carrousels";
+  private API_URL: String = "http://localhost:8080/api/";
+
+  public getCarrousels(): Observable<Carousel[]> {
+    const urlEndPoint = this.API_URL + "carrousels";
     return this.http.get<Carousel[]>(urlEndPoint);
   }
+
+  public getCarrousel(id: number): Observable<Carousel> {
+    const urlEndPoint = this.API_URL + "carrousel/" + id;
+    return this.http.get<Carousel>(urlEndPoint);
+  }
+
+  public insertarCarrousel(obj: Carousel): Observable<any> {
+    const urlEndPoint = this.API_URL + "carrousels";
+    return this.http.post<Carousel>(urlEndPoint, obj);
+  }
+
+  public modificarCarrousel(obj: Carousel): Observable<any> {
+    const urlEndPoint = this.API_URL + "carrousels";
+    return this.http.put<Carousel>(urlEndPoint, obj);
+  }
+
+  public eliminarCarrousel(id: number): Observable<Carousel> {
+    const urlEndPoint = this.API_URL + "carrousel/" + id;
+    return this.http.delete<Carousel>(urlEndPoint);
+  }
+
 }

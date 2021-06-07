@@ -1,0 +1,69 @@
+<header>
+    <h1 *ngIf="modoAlta">Nuevo banner</h1>
+    <h1 *ngIf="!modoAlta">Modificación banner</h1>
+</header>
+
+<div class="alert alert-danger" role="danger" *ngIf="error">
+    {{mensaje}}
+</div>
+<div class="alert alert-success" role="danger" *ngIf="succes">
+    {{mensaje}}
+</div>
+
+<div class="contenedor">
+    <form name="articuloForm" role="form" novalidate #editForm="ngForm" autocomplete="off">
+        <div class="form-group" *ngIf="!modoAlta">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id" [(ngModel)]="banner.id">
+        </div>
+
+        <div class="form-group">
+            <label for="titulo">Titulo</label>
+            <input type="text" class="form-control" id="titulo" name="titulo" [(ngModel)]="banner.titulo" required
+                maxlength="50" minlength="5">
+        </div>
+
+        <div [hidden]="!(editForm.controls.titulo?.dirty && editForm.controls.titulo?.invalid)">
+            <small class="form-text text-danger" [hidden]="!editForm.controls.titulo?.errors?.required">
+                El campo titulo es requerido
+            </small>
+            <small class="form-text text-danger" [hidden]="!editForm.controls.titulo?.errors?.maxlength">
+                El campo no puede superar los 50 carácteres
+            </small>
+            <small class="form-text text-danger" [hidden]="!editForm.controls.titulo?.errors?.minlength">
+                El campo no puede ser menor de 5 carácteres
+            </small>
+        </div>
+
+        <div class="form-group">
+            <label for="descripcion">Descripción</label>
+            <input type="text" class="form-control" id="descripcion" name="descripcion" [(ngModel)]="banner.descripcion"
+                required maxlength="201" minlength="5">
+        </div>
+
+        <div [hidden]="!(editForm.controls.descripcion?.dirty && editForm.controls.descripcion?.invalid)">
+            <small class="form-text text-danger" [hidden]="!editForm.controls.titulo?.errors?.required">
+                El campo descripcion es requerido
+            </small>
+            <small class="form-text text-danger" [hidden]="!editForm.controls.descripcion?.errors?.maxlength">
+                El campo no puede superar los 200 carácteres
+            </small>
+            <small class="form-text text-danger" [hidden]="!editForm.controls.descripcion?.errors?.minlength">
+                El campo no puede ser menor de 5 carácteres
+            </small>
+        </div>
+
+        <div class="form-group">
+            <label for="imagen">Imagen</label>
+            <input type="file" class="form-control" id="imagen" name="imagen" (change)="procesarImagen($event)">
+        </div>
+    </form>
+
+    <div class="botoneraFooter">
+        <a routerLink="/backOffice/bannerList">
+            <button id="btnVolver" class="btn-secondary">Volver</button>
+        </a>
+        <button id="btnGuardar" [disabled]="editForm.form.invalid" id="btnGuardar" class="btn-primary"
+            (click)="guardar()">Guardar</button>
+    </div>
+</div>

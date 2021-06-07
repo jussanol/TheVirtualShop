@@ -1,0 +1,67 @@
+<header>
+    <h1>Lista de Banners</h1>
+</header>
+
+<div class="alert alert-danger" role="danger" *ngIf="error">
+    {{mensaje}}
+</div>
+
+<div class="botoneraHeader">
+    <a routerLink="/backOffice/bannerForm">
+        <button id="btnNuevo" class="btn-primary">Nuevo Banner</button>
+    </a>
+</div>
+
+<table>
+    <thead>
+        <th>ID</th>
+        <th>Titulo</th>
+        <th>Descripcion</th>
+        <th>Imagen</th>
+        <th>Acciones</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let banner of listaBanner;">
+            <td>{{banner.id}}</td>
+            <td>{{banner.titulo | titlecase}}</td>
+            <td>{{banner.descripcion}}</td>
+            <td><img class="imagenMinuatura" [src]="banner.tipoImagen + banner.imagen">
+            </td>
+            <td>
+                <!--Botones de acción-->
+                <a [routerLink]="['/backOffice/bannerForm', banner.id]">
+                    <button id="btnEditar" class="btn-secondary">Editar</button>
+                </a>
+                <button type="button" id="btnEliminar" class="btn-danger" data-bs-toggle="modal"
+                    data-bs-target="#modalEliminar" attr.data-banner="{{banner.id}}"
+                    (click)="prepararEliminar(banner.id)">Eliminar</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="botoneraFooter">
+    <a routerLink="/backOffice">
+        <button id="btnVolver" class="btn-secondary">Volver</button>
+    </a>
+</div>
+
+<div class="modal fade" id="modalEliminar" tabindex="-1" aria-labelledby="modalEliminarLabel" style="display: none;"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalEliminarLabel">Confirmación de borrado</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>¿Realmente desea eliminar el banner {{bannerEliminar}}?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+                    (click)="eliminar(bannerEliminar)">Eliminar</button>
+            </div>
+        </div>
+    </div>
+</div>

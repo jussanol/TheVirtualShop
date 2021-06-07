@@ -1,0 +1,71 @@
+<header>
+    <h1>Lista de articulos</h1>
+</header>
+
+<div class="alert alert-danger" role="danger" *ngIf="error">
+    {{mensaje}}
+</div>
+
+<div class="botoneraHeader">
+    <a routerLink="/backOffice/articuloForm">
+        <button id="btnNuevo" class="btn-primary">Nuevo Articulo</button>
+    </a>
+</div>
+
+<table>
+    <thead>
+        <th>ID</th>
+        <th>Titulo</th>
+        <th>Precio</th>
+        <th>Favorito</th>
+        <th>Precio Oferta</th>
+        <th>Imagen</th>
+        <th>Acciones</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let articulo of listaArticulos;">
+            <td>{{articulo.id}}</td>
+            <td>{{articulo.titulo | titlecase}}</td>
+            <td>{{articulo.precio | currency: 'EUR':'symbol':undefined:'es'}}</td>
+            <td>{{articulo.favorito}}</td>
+            <td>{{articulo.precioOferta | currency: 'EUR':'symbol':undefined:'es'}}</td>
+            <td><img class="imagenMinuatura" [src]="articulo.tipoImagen + articulo.imagen">
+            </td>
+            <td>
+                <!--Botones de acción-->
+                <a [routerLink]="['/backOffice/articuloForm', articulo.id]">
+                    <button id="btnEditar" class="btn-secondary">Editar</button>
+                </a>
+                <button type="button" id="btnEliminar" class="btn-danger" data-bs-toggle="modal"
+                    data-bs-target="#modalEliminar" attr.data-articulo="{{articulo.id}}"
+                    (click)="prepararEliminar(articulo.id)">Eliminar</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="botoneraFooter">
+    <a routerLink="/backOffice">
+        <button id="btnVolver" class="btn-secondary">Volver</button>
+    </a>
+</div>
+
+<div class="modal fade" id="modalEliminar" tabindex="-1" aria-labelledby="modalEliminarLabel" style="display: none;"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalEliminarLabel">Confirmación de borrado</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>¿Realmente desea eliminar el articulo {{articuloEliminar}}?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+                    (click)="eliminar(articuloEliminar)">Eliminar</button>
+            </div>
+        </div>
+    </div>
+</div>

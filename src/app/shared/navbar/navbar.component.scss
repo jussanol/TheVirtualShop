@@ -36,3 +36,11 @@
 .btn-outline-success:not(:disabled):not(.disabled):active:focus {
     box-shadow: 0 0 0 0.2rem #601d607a;
 }
+
+a img {
+    width: 32px;
+}
+
+a img:hover{
+    width: 40px;
+}

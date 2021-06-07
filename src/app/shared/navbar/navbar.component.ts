@@ -9,6 +9,8 @@ export class NavbarComponent implements OnInit {
 
   constructor() { }
 
+  iconoAjustes: String = "./assets/iconos/ajustes.png";
+
   ngOnInit(): void {
   }
 

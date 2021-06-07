@@ -10,10 +10,30 @@ export class BannerService {
 
   constructor(private http: HttpClient) { }
 
-  public obtenerBanners(): Observable<Banner[]> {
+  private API_URL: String = "http://localhost:8080/api/";
 
-    const urlEndPoint = "http://localhost:8080/api/banners";
-    return this.http.get<Banner[]>(urlEndPoint);
+  public getBanners(): Observable<Banner[]> {
+    return this.http.get<Banner[]>(this.API_URL + "banners");
 
+  }
+
+  public getBanner(id: number): Observable<Banner> {
+    const urlEndPoint = this.API_URL + "banner/" + id;
+    return this.http.get<Banner>(urlEndPoint);
+  }
+
+  public insertarBanner(banner: Banner): Observable<any> {
+    const urlEndPoint = this.API_URL + "banners";
+    return this.http.post<Banner>(urlEndPoint, banner);
+  }
+
+  public modificarBanner(banner: Banner): Observable<any> {
+    const urlEndPoint = this.API_URL + "banners";
+    return this.http.put<Banner>(urlEndPoint, banner);
+  }
+
+  public eliminarBanner(idBanner: number): Observable<Banner> {
+    const urlEndPoint = this.API_URL + "banner/" + idBanner;
+    return this.http.delete<Banner>(urlEndPoint);
   }
 }

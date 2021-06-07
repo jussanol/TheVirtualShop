@@ -23,3 +23,74 @@ h1 {
     height: 45px;
     background-size: cover;
 }
+
+.imagenDetallePeq{
+    width: 20%;
+}
+
+.imagenMinuatura{
+    width: 40px;
+}
+
+
+table{
+    width: 85%;
+    border: 1px solid rgb(243, 200, 200);
+    border-radius: 10px;
+    margin: 0 auto;
+    box-shadow: 2px 2px 5px #601d60;
+}
+
+th, td{
+    padding: 8px;
+    width: 75px;
+}
+
+th{
+    background-color: #601d60;
+    color: white;
+    font-weight: bold;
+}
+tr {
+    width: fit-content;
+    background-color: #d0a6a6;
+}
+
+td button{
+    margin-left: 10px;
+    border-radius: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    
+}
+
+tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+
+.botoneraHeader, .botoneraFooter{
+    width: 85%;
+    text-align: right;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    margin: 0 auto;
+}
+
+.botoneraHeader button, .botoneraFooter button{
+    border-radius: 10px;
+}
+
+ .ng-valid[required], .ng-valid.required{
+   border-left: 5px solid #42a948;
+ }
+
+ .ng-invalid:not(form){
+   border-left: 5px solid #a94442;
+ }
+
+ #btnGuardar:disabled{
+   background: silver;
+   border: 2px solid silver;
+ }
+
+ 

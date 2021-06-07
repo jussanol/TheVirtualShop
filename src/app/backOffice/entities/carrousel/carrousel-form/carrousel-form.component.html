@@ -1,0 +1,51 @@
+<header>
+    <h1 *ngIf="modoAlta">Nuevo carrousel</h1>
+    <h1 *ngIf="!modoAlta">Modificar carrousel</h1>
+</header>
+
+<div class="alert alert-danger" role="danger" *ngIf="error">
+    {{mensaje}}
+</div>
+<div class="alert alert-success" role="danger" *ngIf="succes">
+    {{mensaje}}
+</div>
+
+<div class="contenedor">
+    <form name="carrouselForm" role="form" novalidate #editForm="ngForm" autocomplete="off">
+        <div class="form-group" *ngIf="!modoAlta">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id" [(ngModel)]="obj.id">
+        </div>
+
+        <div class="form-group">
+            <label for="titulo">Titulo</label>
+            <input type="text" class="form-control" id="titulo" name="titulo" [(ngModel)]="obj.title" required
+                maxlength="50" minlength="5">
+        </div>
+
+        <div [hidden]="!(editForm.controls.titulo?.dirty && editForm.controls.titulo?.invalid)">
+            <small class="form-text text-danger" [hidden]="!editForm.controls.titulo?.errors?.required">
+                El campo titulo es requerido
+            </small>
+            <small class="form-text text-danger" [hidden]="!editForm.controls.titulo?.errors?.maxlength">
+                El campo no puede superar los 50 carácteres
+            </small>
+            <small class="form-text text-danger" [hidden]="!editForm.controls.titulo?.errors?.minlength">
+                El campo no puede ser menor de 5 carácteres
+            </small>
+        </div>
+
+        <div class="form-group">
+            <label for="imagen">Imagen</label>
+            <input type="file" class="form-control" id="imagen" name="imagen" (change)="procesarImagen($event)">
+        </div>
+    </form>
+
+    <div class="botoneraFooter">
+        <a routerLink="/backOffice/carrouselList">
+            <button id="btnVolver" class="btn-secondary">Volver</button>
+        </a>
+        <button id="btnGuardar" [disabled]="editForm.form.invalid" id="btnGuardar" class="btn-primary"
+            (click)="guardar()">Guardar</button>
+    </div>
+</div>

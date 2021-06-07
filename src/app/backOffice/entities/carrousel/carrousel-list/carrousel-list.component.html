@@ -1,0 +1,65 @@
+<header>
+    <h1>Lista de Carruousels</h1>
+</header>
+
+<div class="alert alert-danger" role="danger" *ngIf="error">
+    {{mensaje}}
+</div>
+
+<div class="botoneraHeader">
+    <a routerLink="/backOffice/carrouselForm">
+        <button id="btnNuevo" class="btn-primary">Nuevo Carrousel</button>
+    </a>
+</div>
+
+<table>
+    <thead>
+        <th>ID</th>
+        <th>Titulo</th>
+        <th>Imagen</th>
+        <th>Acciones</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let obj of lista;">
+            <td>{{obj.id}}</td>
+            <td>{{obj.title | titlecase}}</td>
+            <td><img class="imagenMinuatura" [src]="'data:image/jpeg;base64,' + obj.imagen">
+            </td>
+            <td>
+                <!--Botones de acción-->
+                <a [routerLink]="['/backOffice/carrouselForm', obj.id]">
+                    <button id="btnEditar" class="btn-secondary">Editar</button>
+                </a>
+                <button type="button" id="btnEliminar" class="btn-danger" data-bs-toggle="modal"
+                    data-bs-target="#modalEliminar" attr.data-banner="{{obj.id}}"
+                    (click)="prepararEliminar(obj.id)">Eliminar</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="botoneraFooter">
+    <a routerLink="/backOffice">
+        <button id="btnVolver" class="btn-secondary">Volver</button>
+    </a>
+</div>
+
+<div class="modal fade" id="modalEliminar" tabindex="-1" aria-labelledby="modalEliminarLabel" style="display: none;"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalEliminarLabel">Confirmación de borrado</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>¿Realmente desea eliminar el carrousel {{aEliminar}}?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+                    (click)="eliminar(aEliminar)">Eliminar</button>
+            </div>
+        </div>
+    </div>
+</div>

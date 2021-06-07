@@ -4,6 +4,7 @@
         <div class="articuloCard" *ngFor="let articulo of articulos">
             <a [routerLink]="[ '/tienda', articulo.id ]">
                 <app-articulo [articulo]='articulo'></app-articulo>
+
             </a>
         </div>
     </div>

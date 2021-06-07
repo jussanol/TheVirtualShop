@@ -1,3 +1,6 @@
+<a [routerLink]="['/backOffice/articuloForm', articulo.id]">
+    <img class="imgAjuste" src="./assets/iconos/ajustes.png" alt="Ajustes">
+</a>
 <img class="card-img-top" [src]="articulo.tipoImagen + articulo.imagen" alt="{{articulo.titulo}}">
 <div class="imagenFavorito" [innerHTML]='articulo.favorito | favorito'>&nbsp;</div>
 <div class="card-body">
