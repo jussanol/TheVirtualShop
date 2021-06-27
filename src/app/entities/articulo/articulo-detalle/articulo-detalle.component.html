@@ -1,10 +1,10 @@
 <div class="contenedor">
     <div class="imagen">
-        <img [src]="articulo.tipoImagen + articulo.imagen" alt="{{articulo.titulo}}">
+        <img [src]="articulo.tipoImagen + articulo.imagen" alt="{{articulo.nombre}}">
         <div class="imagenFavorito" [innerHTML]='articulo.favorito | favorito'>&nbsp;</div>
     </div>
     <div class="contenidoDetalle">
-        <h2>{{articulo.titulo | titlecase}}</h2>
+        <h2>{{articulo.nombre | titlecase}}</h2>
         <div *ngIf="!rebajado">
             <small class="precio">{{articulo.precio | currency: 'EUR':'symbol':undefined:'es'}}</small>
         </div>
@@ -15,7 +15,7 @@
         <hr>
         <div class="colorDetalle">
             <p>Color: <b>Multicolor</b></p>
-            <img class="imagenDetallePeq" [src]="articulo.tipoImagen + articulo.imagen" alt="{{articulo.titulo}}">
+            <img class="imagenDetallePeq" [src]="articulo.tipoImagen + articulo.imagen" alt="{{articulo.nombre}}">
         </div>
         <hr>
         <div class="size">

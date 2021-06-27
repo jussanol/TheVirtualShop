@@ -12,10 +12,46 @@
     </a>
 </div>
 
+<div class="containerFiltros">
+    <h1>Filtros</h1>
+    <form>
+        <div class="row">
+            <div class="form-group col-12 col-md-6">
+                <label for="categoria">Categoria</label>
+                <input type="text" class="form-control" id="categoria" [(ngModel)]="filtroCategoria"
+                    name="filtroCategoria">
+            </div>
+
+            <div class="form-group col-12 col-md-6">
+                <label for="nombre">Nombre</label>
+                <input type="text" class="form-control" id="nombre" [(ngModel)]="filtroNombre" name="filtroNombre">
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-12 col-md-6">
+                <label for="precioDesde">Precio Desde</label>
+                <input type="text" class="form-control" id="precioDesde" [(ngModel)]="filtroPrecioDesde"
+                    name="filtroPrecioDesde">
+            </div>
+            <div class="form-group col-12 col-md-6">
+                <label for="precioHasta">Precio Hasta</label>
+                <input type="text" class="form-control" id="precioHasta" [(ngModel)]="filtroPrecioHasta"
+                    name="filtroPrecioHasta">
+            </div>
+        </div>
+
+        <div class="col-12 col-md3">
+            <button id="btnBuscar" class="btn btn-secondary" (click)="buscar()">Buscar</button>
+            <button id="btnClear" class="btn btn-secondary" (click)="clear()">Limpiar Campos</button>
+        </div>
+    </form>
+</div>
+
 <table>
     <thead>
         <th>ID</th>
-        <th>Titulo</th>
+        <th>Nombre</th>
+        <th>Categoria</th>
         <th>Precio</th>
         <th>Favorito</th>
         <th>Precio Oferta</th>
@@ -25,7 +61,8 @@
     <tbody>
         <tr *ngFor="let articulo of listaArticulos;">
             <td>{{articulo.id}}</td>
-            <td>{{articulo.titulo | titlecase}}</td>
+            <td>{{articulo.nombre | titlecase}}</td>
+            <td>{{articulo.categoria | titlecase}}</td>
             <td>{{articulo.precio | currency: 'EUR':'symbol':undefined:'es'}}</td>
             <td>{{articulo.favorito}}</td>
             <td>{{articulo.precioOferta | currency: 'EUR':'symbol':undefined:'es'}}</td>
@@ -43,6 +80,14 @@
         </tr>
     </tbody>
 </table>
+
+<div class="botoneraPaginacion">
+    <button id="btnAtrasLista" [disabled]="first" class="btn btn-secondary btnAtras"
+        (click)="navegarAnterior()">Anterior</button>
+    <span>Pagina {{(page+1)}} - Elementos totales: {{totalElements}}</span>
+    <button [disabled]="last" class="btn btn-secondary btnSiguiente" (click)="navegarSiguiente()">Siguiente</button>
+</div>
+
 
 <div class="botoneraFooter">
     <a routerLink="/backOffice">

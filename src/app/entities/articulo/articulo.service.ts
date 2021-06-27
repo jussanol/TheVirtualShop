@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Filtro } from '../Filtro/filtro.model';
 import { Articulo } from './articulo.model';
 
 @Injectable({
@@ -14,6 +15,20 @@ export class ArticuloService {
 
   public getArticulos(): Observable<Articulo[]> {
     return this.http.get<Articulo[]>(this.API_URL + "articulos");
+  }
+
+  public getArticulosPag(page: number, size: number, sort: string): Observable<Articulo[]> {
+    const paramPage = "?page=" + page + "&size=" + size + "&sort=" + sort;
+    const urlEndPoint = this.API_URL + "articulos-pag" + paramPage;
+    return this.http.get<Articulo[]>(urlEndPoint);
+  }
+
+  public getArticulosPagSeach(page: number, size: number, sort: string, filtros: Filtro[]): Observable<Articulo[]> {
+
+    const paramPage = "?page=" + page + "&size=" + size + "&sort=" + sort;
+    const urlEndPoint = this.API_URL + "articulos-pag-spec" + paramPage;
+
+    return this.http.post<Articulo[]>(urlEndPoint, filtros);
   }
 
   public getArticulo(id: number): Observable<Articulo> {

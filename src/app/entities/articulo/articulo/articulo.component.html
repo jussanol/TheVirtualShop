@@ -1,10 +1,10 @@
 <a [routerLink]="['/backOffice/articuloForm', articulo.id]">
     <img class="imgAjuste" src="./assets/iconos/ajustes.png" alt="Ajustes">
 </a>
-<img class="card-img-top" [src]="articulo.tipoImagen + articulo.imagen" alt="{{articulo.titulo}}">
+<img class="card-img-top" [src]="articulo.tipoImagen + articulo.imagen" alt="{{articulo.nombre}}">
 <div class="imagenFavorito" [innerHTML]='articulo.favorito | favorito'>&nbsp;</div>
 <div class="card-body">
-    <h5 class="card-title">{{articulo.titulo|uppercase}}</h5>
+    <h5 class="card-title">{{articulo.nombre|uppercase}}</h5>
 </div>
 <div *ngIf="!rebajado" class="card-footer">
     <small class="text-muted">{{articulo.precio | currency: 'EUR':'symbol':undefined:'es'}}</small>

@@ -88,9 +88,48 @@ tr:nth-child(even){
    border-left: 5px solid #a94442;
  }
 
- #btnGuardar:disabled{
+ #btnGuardar:disabled,  .btnSiguiente:disabled{
    background: silver;
    border: 2px solid silver;
  }
 
- 
+ .botoneraPaginacion{
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+ }
+
+ .botoneraPaginacion button, .botoneraPaginacion span{
+     margin-left: 10px;
+ }
+
+ #btnAtrasLista:disabled{
+     background: silver;
+     border: 2px solid silver;
+ }
+
+ .containerFiltros{
+     width: 85%;
+     margin: 0 auto;
+     background-color: whitesmoke;
+     padding: 20px;
+     border-radius: 10px;
+     margin-bottom: 20px;
+ }
+
+ .containerFiltros h1{
+     font-size: 14pt;
+     background: #601d60;
+     color: white;
+     width: 200px;
+     padding-left: 20px;
+     border: 8px;
+     margin-top: -33px;
+     padding-top: 5px;
+     padding-bottom: 5px;
+ }
+
+ #btnBuscar, #btnClear{
+     margin-top: 30px;
+     margin-right: 20px;
+ }

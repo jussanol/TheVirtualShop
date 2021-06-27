@@ -18,19 +18,37 @@
         </div>
 
         <div class="form-group">
-            <label for="titulo">Titulo</label>
-            <input type="text" class="form-control" id="titulo" name="titulo" [(ngModel)]="articulo.titulo" required
+            <label for="nombre">Nombre</label>
+            <input type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="articulo.nombre" required
                 maxlength="50" minlength="5">
         </div>
 
-        <div [hidden]="!(editForm.controls.titulo?.dirty && editForm.controls.titulo?.invalid)">
-            <small class="form-text text-danger" [hidden]="!editForm.controls.titulo?.errors?.required">
-                El campo titulo es requerido
+        <div [hidden]="!(editForm.controls.nombre?.dirty && editForm.controls.nombre?.invalid)">
+            <small class="form-text text-danger" [hidden]="!editForm.controls.nombre?.errors?.required">
+                El campo nombre es requerido
             </small>
-            <small class="form-text text-danger" [hidden]="!editForm.controls.titulo?.errors?.maxlength">
+            <small class="form-text text-danger" [hidden]="!editForm.controls.nombre?.errors?.maxlength">
                 El campo no puede superar los 50 carácteres
             </small>
-            <small class="form-text text-danger" [hidden]="!editForm.controls.titulo?.errors?.minlength">
+            <small class="form-text text-danger" [hidden]="!editForm.controls.nombre?.errors?.minlength">
+                El campo no puede ser menor de 5 carácteres
+            </small>
+        </div>
+
+        <div class="form-group">
+            <label for="categoria">Categoria</label>
+            <input type="text" class="form-control" id="categoria" name="categoria" [(ngModel)]="articulo.categoria"
+                required maxlength="50" minlength="5">
+        </div>
+
+        <div [hidden]="!(editForm.controls.categoria?.dirty && editForm.controls.categoria?.invalid)">
+            <small class="form-text text-danger" [hidden]="!editForm.controls.categoria?.errors?.required">
+                El campo categoria es requerido
+            </small>
+            <small class="form-text text-danger" [hidden]="!editForm.controls.categoria?.errors?.maxlength">
+                El campo no puede superar los 50 carácteres
+            </small>
+            <small class="form-text text-danger" [hidden]="!editForm.controls.categoria?.errors?.minlength">
                 El campo no puede ser menor de 5 carácteres
             </small>
         </div>
@@ -45,13 +63,13 @@
             </small>
         </div>
 
-        <div class="form-group">
-            <label for="oferta">¿Incluir oferta?</label>
-            <input type="checkbox" class="form-control" id="oferta" name="oferta" [(ngModel)]="oferta">
+        <div class="form-group form-check">
+            <label for="oferta" class="form-check-label">¿Incluir oferta?</label>
+            <input type="checkbox" class="form-control form-check-input" id="oferta" name="oferta" [(ngModel)]="oferta">
         </div>
         <div class="form-group" *ngIf="oferta">
             <label for="precioOferta">Precio de oferta</label>
-            <input type="text" class="form-control" id="precioOferta" name="precioOferta"
+            <input type="number" class="form-control" id="precioOferta" name="precioOferta"
                 [(ngModel)]="articulo.precioOferta">
         </div>
 
@@ -60,9 +78,10 @@
             <input type="file" class="form-control" id="imagen" name="imagen" (change)="procesarImagen($event)">
         </div>
 
-        <div class="form-group">
-            <label for="favorito">¿Favorito?</label>
-            <input type="checkbox" class="form-control" id="favorito" name="favorito" [(ngModel)]="articulo.favorito">
+        <div class="form-group form-check">
+            <label for="favorito" class="form-check-label">¿Favorito?</label>
+            <input type="checkbox" class="form-control form-check-input" id="favorito" name="favorito"
+                [(ngModel)]="articulo.favorito">
         </div>
     </form>
 

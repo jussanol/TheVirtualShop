@@ -92,7 +92,7 @@ export class ArticuloFormComponent implements OnInit {
         }
       },
       (err) => {
-        this.mensaje = "Se produjo un error al guardar la poción, ERROR: " + err.error;
+        this.mensaje = "Se produjo un error al guardar el articulo, ERROR: " + err.error;
         this.error = true;
       }
     )
